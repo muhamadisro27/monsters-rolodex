@@ -1,0 +1,25 @@
+.card-list {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-block: 20px;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.card-container {
+    border-radius: 3px;
+    width: 300px;
+    height: auto;
+    transition: all .5s ease-out;
+    background-color: aqua;
+    padding: 10px;
+}
+
+
+.card-container:hover {
+    /* box-shadow: 10px 10px solid red; */
+    transform: scale(1.02);
+}
