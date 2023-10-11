@@ -1,23 +1,21 @@
-import React, { Component } from "react";
-import '../style/card.style.css';
+import React, { Fragment } from "react";
+import "../style/card.style.css";
 import Card from "./Card";
 
-export default class CardList extends Component {
-  render() {
-    const { monsters } = this.props;
-
-    return (
-      <div className="card-list">
-        {monsters.length > 0 ? (
-          monsters.map((monster) => {
-            return (
+export default function CardList({monsters}) {
+  return (
+    <div className="card-list">
+      {monsters.length > 0 ? (
+        monsters.map((monster) => {
+          return (
+            <Fragment key={monster.id}>
               <Card monster={monster} />
-            );
-          })
-        ) : (
-          <p>No Data.</p>
-        )}
-      </div>
-    );
-  }
+            </Fragment>
+          );
+        })
+      ) : (
+        <p>No Data.</p>
+      )}
+    </div>
+  );
 }

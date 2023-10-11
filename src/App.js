@@ -6,10 +6,7 @@ import Search from "./components/Search";
 export default function App() {
   const [monsters, setMonsters] = useState([]);
   const [searchField, setSearchField] = useState("");
-
-  const filteredMonster = monsters.filter((monster) => {
-    return monster.name.toLowerCase().includes(searchField);
-  });
+  const [filteredMonster, setFilteredMonster] = useState(monsters);
 
   useEffect(() => {
     try {
@@ -19,7 +16,15 @@ export default function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [searchField]);
+  }, []);
+
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLowerCase().includes(searchField);
+    });
+
+    setFilteredMonster(newFilteredMonsters);
+  }, [monsters, searchField]);
 
   function handleChange(e) {
     e.preventDefault();
